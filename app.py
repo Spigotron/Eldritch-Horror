@@ -1,15 +1,13 @@
 from flask import Flask, jsonify, render_template, request
 import mysql.connector
+import os
 
 app = Flask(__name__)
 
 # MySQL connection setup
 def get_db_connection():
     conn = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="eldritchhorror",
-        database="eh_db"
+        url=os.getenv("MYSQL_URL")
     )
     return conn
 
