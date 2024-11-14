@@ -28,6 +28,7 @@ export default async function handler(req, res) {
     res.status(200).json(result.recordset);
   } catch (err) {
     console.error("Database query failed:", err);
-    res.status(500).json({ error: 'Database query failed' });
+    console.error("Full error:", err.stack); // Logs the full error
+    res.status(500).json({ error: 'Database query failed', details: err.message });
   }
 }
