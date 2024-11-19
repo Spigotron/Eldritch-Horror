@@ -1,0 +1,37 @@
+body {
+    background-color: #f1f1f1;
+    font-family: 'Verdana', sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: green;
+    margin: 50px;
+    font-family: 'Algerian', sans-serif;
+    font-size: 50px;
+    font-weight: normal;
+}
+
+.table {
+    border-collapse: collapse;
+    margin: auto;
+    width: auto;
+}
+
+th, td {
+    border: 2px solid black;
+    padding: 5px;
+}
+
+th {
+    color: green;
+}
+
+.victory-yes {
+    color: green;
+    font-weight: bold;
+}
+  
+.victory-no {
+    color: red;
+}
