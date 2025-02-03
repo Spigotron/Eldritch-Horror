@@ -18,12 +18,9 @@ h1 {
     width: auto;
 }
 
-/* Ensure table cells in the Players column are left-aligned */
-td.players-column {
+td.investigators-column, td.players-column {
     text-align: left;
-    white-space: pre-line; /* Keeps the names stacked correctly */
-  }
-  
+}
 
 th, td {
     border: 2px solid black;

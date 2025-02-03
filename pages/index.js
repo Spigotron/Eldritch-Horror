@@ -38,8 +38,8 @@ export default function Home() {
             <th>Score</th>
             <th>#P</th>
             <th>#I</th>
-            <th>Players</th> {/* Players column */}
-            <th>Investigators</th> {/* Investigators column */}
+            <th>Players</th>
+            <th>Investigators</th>
             <th>Notes</th>
           </tr>
         </thead>
@@ -55,17 +55,16 @@ export default function Home() {
               <td>{game.Score}</td>
               <td>{game.Player_Count}</td>
               <td>{game.Investigator_Count}</td>
-              <td>
+              <td className="players-column">
                 {game.Players ? game.Players.split('\n').map((player, index) => (
                   <div key={index}>{player}</div>
-                )) : null} {/* Check for game.Players */}
+                )) : null}
               </td>
-              <td>
+              <td className="investigators-column">
   {game.Investigators.split('\n').map((entry, index) => (
     <div key={index}>{entry}</div>
   ))}
 </td>
-
               <td>{game.Notes}</td>
             </tr>
           ))}

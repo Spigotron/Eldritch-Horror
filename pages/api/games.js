@@ -1,18 +1,16 @@
 const sql = require('mssql');
 require('dotenv').config();
 
-// Config to connect to Azure SQL Database
 const config = {
   server: process.env.DB_SERVER,
   database: process.env.DB_NAME,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   options: {
-    encrypt: true, // Azure requires encryption
+    encrypt: true,
   },
 };
 
-// Default export function to handle requests
 export default async function handler(req, res) {
   console.log("API request received for /api/games");
 
@@ -21,7 +19,6 @@ export default async function handler(req, res) {
     await sql.connect(config);
     console.log("Connected to database.");
 
-    // **Updated Query**
     const result = await sql.query`
     WITH PlayerSlots AS (
       SELECT DISTINCT
