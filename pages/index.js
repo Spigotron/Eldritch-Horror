@@ -61,10 +61,11 @@ export default function Home() {
                 )) : null} {/* Check for game.Players */}
               </td>
               <td>
-                {game.Investigators ? game.Investigators.split(',').map((investigator, index) => (
-                  <div key={index}>{investigator}</div>
-                )) : null} {/* Check for game.Investigators */}
-              </td> {/* Investigators column */}
+  {game.Investigators.split('\n').map((entry, index) => (
+    <div key={index}>{entry}</div>
+  ))}
+</td>
+
               <td>{game.Notes}</td>
             </tr>
           ))}
