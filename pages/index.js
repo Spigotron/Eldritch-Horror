@@ -38,22 +38,34 @@ export default function Home() {
             <th>Score</th>
             <th>#P</th>
             <th>#I</th>
-            <th>Players</th>
+            <th>Players</th> {/* Players column */}
+            <th>Investigators</th> {/* Investigators column */}
             <th>Notes</th>
           </tr>
         </thead>
         <tbody>
           {games.map((game) => (
             <tr key={game.Game_ID}>
-              <td> {game.Game_ID} </td>
-              <td> {new Date(game.Date).toISOString().slice(2, 10).replace(/-/g, '-')} </td>
-              <td> {game.Ancient_One} </td>
-              <td className={game.Victory ? 'victory-yes' : 'victory-no'}> {game.Victory ? 'YES' : 'no'} </td>
-              <td> {game.Score} </td>
-              <td> {game.Player_Count} </td>
-              <td> {game.Investigator_Count}</td>
-              <td className="players-column"> {game.Players.split('\n').map((player, index) => (<div key={index}>{player}</div>))} </td>
-              <td> {game.Notes} </td>
+              <td>{game.Game_ID}</td>
+              <td>{new Date(game.Date).toISOString().slice(2, 10).replace(/-/g, '-')}</td>
+              <td>{game.Ancient_One}</td>
+              <td className={game.Victory ? 'victory-yes' : 'victory-no'}>
+                {game.Victory ? 'YES' : 'no'}
+              </td>
+              <td>{game.Score}</td>
+              <td>{game.Player_Count}</td>
+              <td>{game.Investigator_Count}</td>
+              <td>
+                {game.Players ? game.Players.split('\n').map((player, index) => (
+                  <div key={index}>{player}</div>
+                )) : null} {/* Check for game.Players */}
+              </td>
+              <td>
+                {game.Investigators ? game.Investigators.split(',').map((investigator, index) => (
+                  <div key={index}>{investigator}</div>
+                )) : null} {/* Check for game.Investigators */}
+              </td> {/* Investigators column */}
+              <td>{game.Notes}</td>
             </tr>
           ))}
         </tbody>
