@@ -4,9 +4,16 @@ body {
     text-align: center;
 }
 
+.button {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    translate: 0% -125%;
+}
+
 .button-add-new-game {
     animation: fadeIn 0.1s forwards;
-    animation-delay: 0.5s;
+    animation-delay: 1s;
     background-color: black;
     border: none;
     border-radius: 10px;
@@ -15,19 +22,41 @@ body {
     font-family: Verdana;
     font-size: 16px;
     font-weight: bold;
-    opacity: 0; /* Start hidden */
+    opacity: 0;
     padding: 10px 10px;
     transition: background-color 0.5s, color 0.5s;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-55%);
-    width: 157px;
+    width: fit-content;
 }
-
 
 .button-add-new-game:hover {
     background-color: greenyellow;
     color: black;
+}
+
+.button-and-table {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+h1 {
+    color: green;
+    font-family: 'Algerian', sans-serif;
+    font-size: 50px;
+    font-weight: normal;
+    margin-bottom: 0;
+}
+
+input, textarea {
+  
 }
 
 @keyframes fadeIn {
@@ -39,38 +68,24 @@ body {
     }
 }
 
-.button-and-header {
-    position: relative;
+label {
+    font-weight: bold;
 }
 
-.container {
+.page-container {
+    align-items: center;
     animation: fadeIn 0.1s forwards;
-    animation-delay: 0.5s;
+    animation-delay: 1s;
+    opacity: 0;
     display: flex;
     flex-direction: column;
-    margin-top: 10x;
-    opacity: 0;
-}
-
-.header {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-}
-
-h1 {
-    color: green;
-    font-family: 'Algerian', sans-serif;
-    font-size: 50px;
-    font-weight: normal;
-    margin: 25px;
-    width: 100%;
 }
 
 .table {
+}
+
+table {
     border-collapse: collapse;
-    margin: auto;
-    width: auto;
 }
 
 td.investigators-column, td.players-column {

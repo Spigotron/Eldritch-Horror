@@ -1,6 +1,4 @@
-// pages/_app.js
-
-import '../styles/styles.css'; // Adjust path if necessary
+import '../styles/styles.css';
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;
