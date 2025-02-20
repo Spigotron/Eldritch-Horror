@@ -34,7 +34,7 @@ export default function Home() {
       <div className="button-and-table">
 
         <div className="button">
-          <button id="addGameButton" className="button-add-new-game" onClick={() => router.push("/add-new-game-form")}> Add New Game
+          <button className="button-add-new-game"> Add New Game
           </button>
         </div>
 
