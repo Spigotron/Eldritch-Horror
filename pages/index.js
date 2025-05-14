@@ -10,7 +10,7 @@ export default function Home() {
   useEffect(() => {
     async function fetchGames() {
       try {
-        const response = await fetch('/api/fetch-games');
+        const response = await fetch('/api/games');
         if (!response.ok) {
           throw new Error('Failed to fetch games.');
         }
@@ -27,14 +27,14 @@ export default function Home() {
   return (
     <div className="page-container">
 
-      <div className="header">
-        <h1> Eldritch Horror Games </h1>
+      <div className="header1">
+        Eldritch Horror Games
       </div>
 
       <div className="button-and-table">
 
         <div className="button">
-          <button className="button-add-new-game"> Add New Game
+          <button className="button-add-game" onClick={() => router.push("/add-game-form")} > Add Game
           </button>
         </div>
 
@@ -51,7 +51,6 @@ export default function Home() {
                 <th>Victory?</th>
                 <th>Score</th>
                 <th>#P</th>
-                <th>#I</th>
                 <th>Players</th>
                 <th>Investigators</th>
                 <th>Notes</th>
@@ -63,12 +62,11 @@ export default function Home() {
                   <td>{game.Game_ID}</td>
                   <td>{new Date(game.Date).toISOString().slice(2, 10).replace(/-/g, '-')}</td>
                   <td>{game.Ancient_One}</td>
-                  <td className={game.Victory ? 'victory-yes' : 'victory-no'}>
+                  <td className={game.Victory ? 'victory-column-yes' : 'victory-column-no'}>
                     {game.Victory ? 'YES' : 'no'}
                   </td>
                   <td>{game.Score}</td>
                   <td>{game.Player_Count}</td>
-                  <td>{game.Investigator_Count}</td>
                   <td className="players-column">
                     {game.Players ? game.Players.split('\n').map((player, index) => (
                       <div key={index}>{player}</div>

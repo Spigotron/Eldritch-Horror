@@ -53,14 +53,13 @@ export default async function handler(req, res) {
         g.Victory,
         g.Score,
         g.Player_Count,
-        g.Investigator_Count,
         COALESCE(STRING_AGG(ps.PlayerEntry, CHAR(10)), '') AS Players,
         COALESCE(STRING_AGG(islot.InvestigatorEntry, CHAR(10)), '') AS Investigators, -- New line separator for I# groups
         g.Notes
     FROM Games g
     LEFT JOIN PlayerSlots ps ON g.Game_ID = ps.Game_ID
     LEFT JOIN InvestigatorSlots islot ON g.Game_ID = islot.Game_ID AND ps.Player_Slot = islot.Player_Slot
-    GROUP BY g.Game_ID, g.Date, g.Ancient_One, g.Victory, g.Score, g.Player_Count, g.Investigator_Count, g.Notes;
+    GROUP BY g.Game_ID, g.Date, g.Ancient_One, g.Victory, g.Score, g.Player_Count, g.Notes;
   `;
 
     console.log("Query executed, data fetched:", result.recordset);
