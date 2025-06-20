@@ -92,6 +92,18 @@ export default function AddGame() {
 const handleSubmit = async (e) => {
   e.preventDefault();
 
+  // 1️⃣ Prompt for the password
+  const pwd = window.prompt("Enter password to submit this game:");
+  if (pwd === null) {
+    // User hit “Cancel”
+    return;
+  }
+  if (pwd !== process.env.NEXT_PUBLIC_ADD_GAME_PASSWORD) {
+    alert("Incorrect password. Submission canceled.");
+    return;
+  }
+
+  // 2️⃣ If password is correct, proceed with the POST
   const response = await fetch("/api/add-game", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -101,9 +113,11 @@ const handleSubmit = async (e) => {
   if (response.ok) {
     router.push("/");
   } else {
-    alert("Failed to add game.");
+    const error = await response.json();
+    alert("Failed to add game: " + (error.error || response.statusText));
   }
 };
+
 
   return (
     <div className="container-form">
