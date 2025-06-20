@@ -4,42 +4,6 @@ body {
   text-align: center;
 }
 
-.button {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  translate: 0% -125%;
-}
-
-.button-add-game {
-  animation: fadeIn 0.1s forwards;
-  animation-delay: 1s;
-  background-color: black;
-  border: none;
-  border-radius: 10px;
-  color: greenyellow;
-  cursor: pointer;
-  font-family: 'Verdana';
-  font-size: 16px;
-  font-weight: bold;
-  opacity: 0;
-  padding: 10px 10px;
-  transition: background-color 0.5s, color 0.5s;
-  width: fit-content;
-}
-
-.button-add-game:hover {
-  background-color: greenyellow;
-  color: black;
-}
-
-.button-and-table {
-  align-items: flex-end;
-  display: flex;
-  flex-direction: column;
-  width: fit-content;
-}
-
 .form {
   align-items: center;
   background-color: darkgreen;
@@ -54,13 +18,13 @@ body {
   width: 232px;
 }
 
-.form-container {
+.container-form {
   align-items: center;
   display: flex;
   flex-direction: column;
 }
 
-.header1 {
+.header-games {
   align-items: center;
   color: green;
   display: flex;
@@ -72,7 +36,7 @@ body {
   margin-top: 30px;
 }
 
-.header2 {
+.header-add-game {
   align-items: center;
   color: green;
   display: flex;
@@ -122,13 +86,40 @@ label {
   margin-left: 1px;
 }
 
+.navbar {
+  align-items: center;
+  background-color:darkgreen;
+  border-radius: 10px;
+  display: flex;
+  padding: 1rem;
+  width: fit-content;
+}
+
+.navbar-button {
+  background-color: black;
+  border: none;
+  border-radius: 10px;
+  color: greenyellow;
+  cursor: pointer;
+  font-family: Verdana, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 10px;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.navbar-button:hover {
+  background-color: greenyellow;
+  color: black;
+}
+
+
 .page-container {
   align-items: center;
-  animation: fadeIn 0.1s forwards;
-  animation-delay: 1s;
   display: flex;
   flex-direction: column;
-  opacity: 0;
 }
 
 select {

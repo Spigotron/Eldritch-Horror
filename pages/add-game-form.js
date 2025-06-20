@@ -106,8 +106,22 @@ const handleSubmit = async (e) => {
 };
 
   return (
-    <div className="form-container">
-      <div className="header2">Add Game</div>
+    <div className="container-form">
+    <nav className="navbar">
+<button
+  className="navbar-button"
+  onClick={() => router.push("/")}
+>
+  Home
+</button>
+
+   <button
+    className="navbar-button"
+    onClick={() => router.push("/add-game-form")}
+  >Add Game
+  </button>
+</nav>
+      <div className="header-add-game">Add Game</div>
       <div className="form">
         <form onSubmit={handleSubmit}>
           <label>Date</label>

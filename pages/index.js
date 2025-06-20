@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useRouter } from "next/router";
 
@@ -5,7 +6,6 @@ export default function Home() {
   const [games, setGames] = useState([]);
   const [error, setError] = useState(null);
   const router = useRouter();
-
 
   useEffect(() => {
     async function fetchGames() {
@@ -26,22 +26,35 @@ export default function Home() {
 
   return (
     <div className="page-container">
+    
 
-      <div className="header1">
+      
+<nav className="navbar">
+<button
+  className="navbar-button"
+  onClick={() => router.push("/")}
+>
+  Home
+</button>
+
+   <button
+    className="navbar-button"
+    onClick={() => router.push("/add-game-form")}
+  >Add Game
+  </button>
+</nav>
+      
+
+      <div className="header-games">
         Eldritch Horror Games
       </div>
 
-      <div className="button-and-table">
-
-        <div className="button">
-          <button className="button-add-game" onClick={() => router.push("/add-game-form")} > Add Game
-          </button>
-        </div>
+      <div className="table">
 
         {error && <p style={{ color: 'red' }}>Error: {error}</p>}
         {!error && games.length === 0 && <p>Loading Games...</p>}
 
-        <div className="table">
+      
           <table id="gameTable">
             <thead>
               <tr>
@@ -82,7 +95,6 @@ export default function Home() {
               ))}
             </tbody>
           </table>
-        </div>
       </div>
     </div>
   );
